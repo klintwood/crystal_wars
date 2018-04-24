@@ -1,0 +1,1331 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://scripts/Main.gd" type="Script" id=1]
+[ext_resource path="res://meshes/mesh_library/world_parts.meshlib" type="MeshLibrary" id=2]
+[ext_resource path="res://prefabs/HQ.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/Mate.gd" type="Script" id=4]
+[ext_resource path="res://audio/Laser.wav" type="AudioStream" id=5]
+[ext_resource path="res://audio/Laser2.wav" type="AudioStream" id=6]
+[ext_resource path="res://audio/Laser3.wav" type="AudioStream" id=7]
+[ext_resource path="res://meshes/player_weapon/Cylinder.mesh" type="ArrayMesh" id=8]
+[ext_resource path="res://audio/JetPack.wav" type="AudioStream" id=9]
+[ext_resource path="res://textures/crystal.png" type="Texture" id=10]
+[ext_resource path="res://fonts/Abel/menu_label_abel.tres" type="DynamicFont" id=11]
+[ext_resource path="res://textures/backpack.png" type="Texture" id=12]
+[ext_resource path="res://textures/ProgressBarUnder.png" type="Texture" id=13]
+[ext_resource path="res://textures/ProgressBar.png" type="Texture" id=14]
+[ext_resource path="res://textures/crosshair.png" type="Texture" id=15]
+[ext_resource path="res://scripts/UserInfoDisplay.gd" type="Script" id=16]
+[ext_resource path="res://prefabs/UserInfoBox.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scripts/DevConsole.gd" type="Script" id=18]
+[ext_resource path="res://scripts/PauseManager.gd" type="Script" id=19]
+[ext_resource path="res://scenes/OptionsUI.tscn" type="PackedScene" id=20]
+[ext_resource path="res://fonts/Abel/menu_button_abel.tres" type="DynamicFont" id=21]
+[ext_resource path="res://prefabs/MineBody.tscn" type="PackedScene" id=22]
+[ext_resource path="res://audio/VeryBadTunes.ogg" type="AudioStream" id=23]
+[ext_resource path="res://prefabs/UniversalDrone.tscn" type="PackedScene" id=24]
+[ext_resource path="res://prefabs/BuildingBaseUniversal.tscn" type="PackedScene" id=25]
+[ext_resource path="res://prefabs/SpawnPoint.tscn" type="PackedScene" id=26]
+
+[sub_resource type="CapsuleShape" id=1]
+
+radius = 1.0
+height = 1.0
+
+[sub_resource type="StyleBoxFlat" id=2]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0.09375, 0.09375, 0.09375, 1 )
+draw_center = true
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.0546875, 0.0546875, 0.0546875, 1 )
+border_blend = false
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
+_sections_unfolded = [ "Border", "Border Width", "Corner Radius" ]
+
+[sub_resource type="StyleBoxFlat" id=3]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0.171875, 0.171875, 0.171875, 0.806627 )
+draw_center = true
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.515625, 0.670776, 1, 1 )
+border_blend = false
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 8
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
+_sections_unfolded = [ "Border", "Border Width", "Content Margin", "Expand Margin" ]
+
+[node name="Demo" type="Node" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="GridMap" type="GridMap" parent="." index="0" groups=[
+"bases",
+]]
+
+theme = ExtResource( 2 )
+cell_size = Vector3( 10, 5, 10 )
+cell_octant_size = 8
+cell_center_x = true
+cell_center_y = false
+cell_center_z = true
+cell_scale = 1.0
+collision_layer = 1
+collision_mask = 1
+data = {
+"cells": PoolIntArray( 0, 0, 1441799, 1, 0, 1048582, 2, 0, 5, 4, 0, 0, 65517, 0, 655360, 65520, 0, 0, 65522, 0, 0, 65528, 0, 655367, 65529, 0, 1048580, 65530, 0, 1048580, 65531, 0, 7, 65535, 0, 1441797, 1, 1, 655368, 4, 1, 0, 65517, 1, 1441795, 65518, 1, 1048577, 65519, 1, 1048576, 65520, 1, 1441794, 65521, 1, 1441792, 65522, 1, 1, 65526, 1, 655363, 65527, 1, 1048576, 65528, 1, 6, 65529, 1, 1048580, 65530, 1, 1048580, 65531, 1, 7, 4, 2, 1441795, 5, 2, 1048579, 65518, 2, 655360, 65520, 2, 655360, 65522, 2, 655360, 65526, 2, 655360, 65528, 2, 1441797, 65529, 2, 1048582, 65530, 2, 1441799, 65531, 2, 5, 5, 3, 1441795, 6, 3, 1048579, 65518, 3, 1441795, 65519, 3, 1048576, 65520, 3, 1441793, 65521, 3, 1441792, 65522, 3, 1441794, 65523, 3, 1441792, 65524, 3, 1048579, 65526, 3, 655360, 65529, 3, 655368, 2, 4, 8, 6, 4, 0, 65522, 4, 655360, 65524, 4, 0, 65526, 4, 655360, 65533, 4, 655365, 65534, 4, 1048583, 65535, 4, 1048581, 2, 5, 1441795, 3, 5, 1441792, 4, 5, 1441792, 5, 5, 1441792, 6, 5, 1, 65522, 5, 1441795, 65523, 5, 1441792, 65524, 5, 1, 65526, 5, 1441795, 65527, 5, 1048576, 65528, 5, 1048576, 65529, 5, 1048577, 65530, 5, 1441792, 65531, 5, 1441792, 65532, 5, 1441792, 65533, 5, 6, 65534, 5, 4, 65535, 5, 7, 6, 6, 0, 65524, 6, 655360, 65529, 6, 655360, 65533, 6, 1441797, 65534, 6, 1048582, 65535, 6, 5, 1, 7, 655363, 2, 7, 1441792, 3, 7, 1441792, 4, 7, 1441792, 5, 7, 1441792, 6, 7, 3, 65524, 7, 1441795, 65525, 7, 1441792, 65526, 7, 1441792, 65527, 7, 1441792, 65528, 7, 1441792, 65529, 7, 3, 65534, 7, 655360, 0, 8, 1441792, 1, 8, 3, 65534, 8, 655361, 65535, 8, 1441792, 65534, 9, 655368, 65534, 65519, 655363, 65535, 65519, 1441800, 65534, 65520, 655360, 65521, 65521, 655363, 65522, 65521, 1048576, 65523, 65521, 1048577, 65524, 65521, 1048576, 65525, 65521, 1048579, 65534, 65521, 655360, 0, 65522, 1048579, 65521, 65522, 0, 65523, 65522, 655368, 65525, 65522, 1441795, 65526, 65522, 1048576, 65527, 65522, 1048576, 65528, 65522, 1048576, 65529, 65522, 1048579, 65532, 65522, 655363, 65533, 65522, 1048576, 65534, 65522, 1441793, 65535, 65522, 1048576, 0, 65523, 655360, 65516, 65523, 1048584, 65517, 65523, 1048577, 65518, 65523, 1048576, 65519, 65523, 1048576, 65520, 65523, 1048576, 65521, 65523, 3, 65529, 65523, 655360, 65532, 65523, 0, 0, 65524, 1441793, 1, 65524, 1048579, 65517, 65524, 655360, 65526, 65524, 655363, 65527, 65524, 1441792, 65528, 65524, 1441792, 65529, 65524, 1441794, 65530, 65524, 1441792, 65531, 65524, 1048576, 65532, 65524, 3, 65534, 65524, 655363, 65535, 65524, 1441792, 1, 65525, 655360, 65517, 65525, 655360, 65522, 65525, 655363, 65523, 65525, 1441792, 65524, 65525, 1048579, 65526, 65525, 655360, 65529, 65525, 0, 65534, 65525, 0, 1, 65526, 655360, 65517, 65526, 655360, 65521, 65526, 655363, 65522, 65526, 3, 65524, 65526, 1441795, 65525, 65526, 1048576, 65526, 65526, 1441793, 65527, 65526, 1441800, 65529, 65526, 1441795, 65530, 65526, 1441792, 65531, 65526, 1048579, 65534, 65526, 0, 0, 65527, 1441792, 1, 65527, 1441794, 2, 65527, 1441800, 65517, 65527, 1441795, 65518, 65527, 1048577, 65519, 65527, 1048576, 65520, 65527, 1441792, 65521, 65527, 1, 65531, 65527, 655360, 65534, 65527, 1441795, 65535, 65527, 1441792, 1, 65528, 0, 65518, 65528, 655360, 65521, 65528, 0, 65525, 65528, 8, 65531, 65528, 655360, 1, 65529, 0, 65518, 65529, 1441795, 65519, 65529, 1048579, 65521, 65529, 0, 65525, 65529, 0, 65529, 65529, 655363, 65530, 65529, 1441792, 65531, 65529, 1441793, 65532, 65529, 1441800, 0, 65530, 655363, 1, 65530, 3, 65519, 65530, 655360, 65521, 65530, 1441795, 65522, 65530, 1441792, 65523, 65530, 1441792, 65524, 65530, 1048577, 65525, 65530, 3, 65529, 65530, 655360, 0, 65531, 0, 65519, 65531, 655360, 65524, 65531, 655360, 65528, 65531, 655365, 65529, 65531, 1441798, 65530, 65531, 1048583, 65531, 65531, 1048581, 0, 65532, 0, 65519, 65532, 1441795, 65520, 65532, 1048579, 65524, 65532, 655360, 65528, 65532, 655367, 65529, 65532, 1048580, 65530, 65532, 1048580, 65531, 65532, 7, 0, 65533, 0, 65514, 65533, 1048584, 65515, 65533, 1048576, 65516, 65533, 1048579, 65520, 65533, 0, 65524, 65533, 1441795, 65525, 65533, 1048576, 65526, 65533, 1048576, 65527, 65533, 1048576, 65528, 65533, 6, 65529, 65533, 1048580, 65530, 65533, 1048580, 65531, 65533, 7, 0, 65534, 1441798, 1, 65534, 1048583, 2, 65534, 1048581, 65516, 65534, 655360, 65518, 65534, 655363, 65519, 65534, 1048576, 65520, 65534, 1, 65528, 65534, 655367, 65529, 65534, 1048580, 65530, 65534, 1048580, 65531, 65534, 7, 65535, 65534, 655365, 0, 65535, 4, 1, 65535, 4, 2, 65535, 655366, 3, 65535, 1048576, 4, 65535, 1048579, 65516, 65535, 1441795, 65517, 65535, 1048577, 65518, 65535, 3, 65520, 65535, 0, 65522, 65535, 655363, 65523, 65535, 1048576, 65524, 65535, 1048576, 65525, 65535, 1441800, 65528, 65535, 655367, 65529, 65535, 1048580, 65530, 65535, 1048580, 65531, 65535, 655366, 65532, 65535, 1048576, 65533, 65535, 1048576, 65534, 65535, 1048576, 65535, 65535, 6 )
+}
+_sections_unfolded = [ "Cell" ]
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 0 )
+}
+
+[node name="HQ" parent="." index="1" instance=ExtResource( 3 )]
+
+transform = Transform( -0.719337, 0, -0.694661, 0, 1, 0, 0.694661, 0, -0.719337, -51.0642, 0, -35.7728 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Mate" type="KinematicBody" parent="." index="2"]
+
+editor/display_folded = true
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -47.7159, 1.47757, -4.69588 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+axis_lock_linear_x = false
+axis_lock_linear_y = false
+axis_lock_linear_z = false
+axis_lock_angular_x = false
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+collision/safe_margin = 0.001
+script = ExtResource( 4 )
+_sections_unfolded = [ "Axis Lock", "Collision", "Transform" ]
+laserSound1 = ExtResource( 5 )
+laserSound2 = ExtResource( 6 )
+laserSound3 = ExtResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Mate" index="0"]
+
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 1 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="Head" type="Spatial" parent="Mate" index="1"]
+
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0.846035, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Camera" type="Camera" parent="Mate/Head" index="0"]
+
+keep_aspect = 1
+cull_mask = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 2
+projection = 0
+current = false
+fov = 70.0
+size = 1.0
+near = 0.05
+far = 150.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="Weapon" type="MeshInstance" parent="Mate/Head/Camera" index="0"]
+
+transform = Transform( 1.5, 0, 0, 0, -6.55671e-08, 1.5, 0, -1.5, -6.55671e-08, 1.01121, -0.442218, -0.332129 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 8 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="LaserAudio" type="AudioStreamPlayer3D" parent="Mate/Head/Camera/Weapon" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 7.10543e-15, 0, -7.10543e-15, 1, 0, 1.09819, 0 )
+stream = ExtResource( 5 )
+attenuation_model = 0
+unit_db = 0.0
+unit_size = 1.0
+max_db = 3.0
+autoplay = false
+max_distance = 0.0
+out_of_range_mode = 0
+bus = "SFX"
+area_mask = 1
+emission_angle_enabled = false
+emission_angle_degrees = 45.0
+emission_angle_filter_attenuation_db = -12.0
+attenuation_filter_cutoff_hz = 5000.0
+attenuation_filter_db = -24.0
+doppler_tracking = 0
+
+[node name="LaserAperture" type="Spatial" parent="Mate/Head/Camera/Weapon" index="1"]
+
+transform = Transform( 1, -1.42109e-14, -8.47033e-22, 1.42109e-14, 1, 2.13163e-14, -1.16467e-21, -2.13163e-14, 1, 0, 0.58611, 0.0690392 )
+
+[node name="Listener" type="Listener" parent="Mate/Head/Camera" index="1"]
+
+current = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="JetPackAudio" type="AudioStreamPlayer3D" parent="Mate/Head/Camera" index="2"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.52502 )
+stream = ExtResource( 9 )
+attenuation_model = 0
+unit_db = 0.0
+unit_size = 1.0
+max_db = 3.0
+autoplay = false
+max_distance = 0.0
+out_of_range_mode = 0
+bus = "SFX"
+area_mask = 1
+emission_angle_enabled = false
+emission_angle_degrees = 45.0
+emission_angle_filter_attenuation_db = -12.0
+attenuation_filter_cutoff_hz = 5000.0
+attenuation_filter_db = -24.0
+doppler_tracking = 0
+_sections_unfolded = [ "Transform" ]
+
+[node name="Laser" type="ImmediateGeometry" parent="." index="3"]
+
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+_sections_unfolded = [ "Geometry", "LOD", "Pause", "Transform", "Visibility" ]
+
+[node name="GUI" type="ReferenceRect" parent="." index="4"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="CrystalPanel" type="Panel" parent="GUI" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 13.0
+margin_top = 12.0
+margin_right = 144.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = SubResource( 2 )
+_sections_unfolded = [ "custom_styles" ]
+
+[node name="CrystalSymbol" type="TextureRect" parent="GUI/CrystalPanel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 6.0
+margin_top = 5.0
+margin_right = 50.0
+margin_bottom = 49.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 6
+
+[node name="CrystalCount" type="Label" parent="GUI" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 61.0
+margin_top = 27.0
+margin_right = 141.0
+margin_bottom = 52.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 11 )
+text = "50"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="InventoryPanel" type="Panel" parent="GUI" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 13.0
+margin_top = 70.0
+margin_right = 144.0
+margin_bottom = 124.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = SubResource( 2 )
+_sections_unfolded = [ "custom_styles" ]
+
+[node name="BackpackSymbol" type="TextureRect" parent="GUI/InventoryPanel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 6.0
+margin_top = 5.0
+margin_right = 50.0
+margin_bottom = 49.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 6
+
+[node name="InventoryCount" type="Label" parent="GUI" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 61.0
+margin_top = 85.0
+margin_right = 141.0
+margin_bottom = 110.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 11 )
+text = "0"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="EnergyAnchor" type="Control" parent="GUI" index="4"]
+
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -40.0
+margin_right = 20.0
+margin_bottom = -20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Margin", "Rect" ]
+
+[node name="TextureProgress" type="TextureProgress" parent="GUI/EnergyAnchor" index="0"]
+
+self_modulate = Color( 1, 1, 1, 0.685059 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -215.0
+margin_top = -6.0
+margin_right = 215.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 10.0
+step = 0.1
+page = 0.0
+value = 10.0
+exp_edit = false
+rounded = false
+texture_under = ExtResource( 13 )
+texture_over = null
+texture_progress = ExtResource( 14 )
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = true
+stretch_margin_left = 5
+stretch_margin_top = 5
+stretch_margin_right = 5
+stretch_margin_bottom = 5
+_sections_unfolded = [ "Textures", "Visibility" ]
+
+[node name="Crosshair" type="Control" parent="." index="5"]
+
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Crosshair" type="Sprite" parent="Crosshair" index="0"]
+
+position = Vector2( 0, -0.814484 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 15 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="UserInfoDisplay" type="ReferenceRect" parent="." index="6"]
+
+editor/display_folded = true
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -234.0
+margin_top = 4.0
+margin_right = -4.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 16 )
+_sections_unfolded = [ "Margin", "Theme" ]
+infoBox = ExtResource( 17 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInfoDisplay" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="DevConsole" type="Panel" parent="." index="7"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_top = -311.0
+margin_right = 317.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 18 )
+
+[node name="CommandEdit" type="LineEdit" parent="DevConsole" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 9.0
+margin_top = 8.0
+margin_right = 306.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+focus_mode = 2
+context_menu_enabled = true
+placeholder_text = "Command"
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Placeholder" ]
+
+[node name="OutputLabel" type="Label" parent="DevConsole" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 9.0
+margin_top = 44.0
+margin_right = 304.0
+margin_bottom = 302.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Enter help for more info."
+autowrap = true
+clip_text = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="PauseWindow" type="Panel" parent="." index="8"]
+
+pause_mode = 2
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -88.0
+margin_top = -91.0
+margin_right = 87.0
+margin_bottom = 90.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = SubResource( 3 )
+script = ExtResource( 19 )
+_sections_unfolded = [ "Anchor", "Mouse", "Pause", "custom_styles" ]
+options_scene = ExtResource( 20 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseWindow" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Mouse" ]
+
+[node name="PauseTitle" type="Label" parent="PauseWindow/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 175.0
+margin_bottom = 42.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 21 )
+text = "PAUSED"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "Mouse", "custom_fonts" ]
+
+[node name="HSeparator" type="HSeparator" parent="PauseWindow/VBoxContainer" index="1"]
+
+modulate = Color( 0.410156, 0.62674, 1, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 46.0
+margin_right = 175.0
+margin_bottom = 46.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 0
+_sections_unfolded = [ "Margin", "Visibility" ]
+
+[node name="Continue Button" type="Button" parent="PauseWindow/VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 50.0
+margin_right = 175.0
+margin_bottom = 75.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_neighbour_bottom = NodePath("../Options Button")
+focus_next = NodePath("../Options Button")
+focus_previous = NodePath("../Quit Button")
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 11 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Continue"
+flat = true
+align = 1
+_sections_unfolded = [ "Focus", "Mouse", "custom_fonts" ]
+
+[node name="Options Button" type="Button" parent="PauseWindow/VBoxContainer" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 79.0
+margin_right = 175.0
+margin_bottom = 104.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_neighbour_top = NodePath("../Continue Button")
+focus_neighbour_bottom = NodePath("../Menu Button")
+focus_next = NodePath("../Menu Button")
+focus_previous = NodePath("../Continue Button")
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 11 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Options"
+flat = true
+align = 1
+_sections_unfolded = [ "Focus", "Mouse", "custom_fonts" ]
+
+[node name="Menu Button" type="Button" parent="PauseWindow/VBoxContainer" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 108.0
+margin_right = 175.0
+margin_bottom = 133.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_neighbour_top = NodePath("../Options Button")
+focus_neighbour_bottom = NodePath("../Quit Button")
+focus_next = NodePath("../Quit Button")
+focus_previous = NodePath("../Options Button")
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 11 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Back to Menu"
+flat = true
+align = 1
+_sections_unfolded = [ "Focus", "Mouse", "custom_fonts" ]
+
+[node name="Quit Button" type="Button" parent="PauseWindow/VBoxContainer" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 137.0
+margin_right = 175.0
+margin_bottom = 162.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_neighbour_top = NodePath("../Menu Button")
+focus_next = NodePath("../Continue Button")
+focus_previous = NodePath("../Menu Button")
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 11 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Quit Game"
+flat = true
+align = 1
+_sections_unfolded = [ "Focus", "Mouse", "custom_fonts" ]
+
+[node name="Mines" type="Node" parent="." index="9"]
+
+editor/display_folded = true
+
+[node name="MineBody1" parent="Mines" index="0" instance=ExtResource( 22 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64.9351, 2.67646, 36.7441 )
+
+[node name="MineBody2" parent="Mines" index="1" instance=ExtResource( 22 )]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0347, 2.67646, 16.8136 )
+
+[node name="MineBody3" parent="Mines" index="2" instance=ExtResource( 22 )]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9927, 2.67646, 43.2435 )
+
+[node name="MineBody4" parent="Mines" index="3" instance=ExtResource( 22 )]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9929, 2.67646, 96.7674 )
+
+[node name="MineBody5" parent="Mines" index="4" instance=ExtResource( 22 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -104.964, 2.67646, -76.8013 )
+
+[node name="MineBody6" parent="Mines" index="5" instance=ExtResource( 22 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -125.007, 2.67646, -133.269 )
+
+[node name="MineBody7" parent="Mines" index="6" instance=ExtResource( 22 )]
+
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -196.716, 2.67646, -124.955 )
+
+[node name="MineBody8" parent="Mines" index="7" instance=ExtResource( 22 )]
+
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -216.792, 2.67646, -24.9837 )
+
+[node name="MineBody9" parent="Mines" index="8" instance=ExtResource( 22 )]
+
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -103.282, 2.67646, -4.99993 )
+
+[node name="MineBody10" parent="Mines" index="9" instance=ExtResource( 22 )]
+
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -83.2292, 2.67646, -95.0254 )
+
+[node name="MineBody11" parent="Mines" index="10" instance=ExtResource( 22 )]
+
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -33.201, 2.67646, -64.9677 )
+
+[node name="MineBody12" parent="Mines" index="11" instance=ExtResource( 22 )]
+
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.21337, 2.67646, -165.016 )
+
+[node name="MineBody13" parent="Mines" index="12" instance=ExtResource( 22 )]
+
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 26.8141, 2.67646, -84.9949 )
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." index="10"]
+
+stream = ExtResource( 23 )
+volume_db = -6.08
+autoplay = true
+mix_target = 0
+bus = "Music"
+
+[node name="Drones" type="Node" parent="." index="11"]
+
+editor/display_folded = true
+
+[node name="UniversalDrone" parent="Drones" index="0" instance=ExtResource( 24 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51.0456, -0.129686, -29.5025 )
+
+[node name="HumanBuildingBases" type="Node" parent="." index="12"]
+
+editor/display_folded = true
+
+[node name="BuildingBase1" parent="HumanBuildingBases" index="0" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -72.8544, 0, -15.6343 )
+
+[node name="BuildingBase2" parent="HumanBuildingBases" index="1" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -73.2155, 0, -33.3438 )
+
+[node name="BuildingBase3" parent="HumanBuildingBases" index="2" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55.9714, 0, -43.8687 )
+
+[node name="BuildingBase4" parent="HumanBuildingBases" index="3" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -74.3385, 0, -43.4422 )
+
+[node name="BuildingBase5" parent="HumanBuildingBases" index="4" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.856, 0, -14.8953 )
+
+[node name="BuildingBase6" parent="HumanBuildingBases" index="5" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.856, 0, 3.70876 )
+
+[node name="BuildingBase7" parent="HumanBuildingBases" index="6" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -74.4937, 0, 22.9884 )
+
+[node name="BuildingBase8" parent="HumanBuildingBases" index="7" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -73.6534, 0, 6.97277 )
+
+[node name="BuildingBase9" parent="HumanBuildingBases" index="8" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64.7226, 0, -25.8403 )
+
+[node name="BuildingBase10" parent="HumanBuildingBases" index="9" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5636, 0, 64.6057 )
+
+[node name="BuildingBase11" parent="HumanBuildingBases" index="10" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.13737, 0, 45.4402 )
+
+[node name="BuildingBase12" parent="HumanBuildingBases" index="11" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.43219, 0, -12.0493 )
+
+[node name="BuildingBase13" parent="HumanBuildingBases" index="12" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00559, 0, 0.534978 )
+
+[node name="BuildingBase14" parent="HumanBuildingBases" index="13" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1501, 0, -0.0847654 )
+
+[node name="BuildingBase15" parent="HumanBuildingBases" index="14" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.2439, 0, -12.8544 )
+
+[node name="BuildingBase16" parent="HumanBuildingBases" index="15" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65.4108, 0, 53.565 )
+
+[node name="BuildingBase17" parent="HumanBuildingBases" index="16" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.9406, 0, 19.8362 )
+
+[node name="BuildingBase18" parent="HumanBuildingBases" index="17" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -73.0979, 0, -3.62204 )
+
+[node name="BuildingBase20" parent="HumanBuildingBases" index="18" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -115.804, 0, -57.5031 )
+
+[node name="BuildingBase21" parent="HumanBuildingBases" index="19" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -103.134, 0, -147.411 )
+
+[node name="BuildingBase22" parent="HumanBuildingBases" index="20" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.3213, 0, -88.3634 )
+
+[node name="BuildingBase23" parent="HumanBuildingBases" index="21" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.54284, 0, -138.609 )
+
+[node name="BuildingBase24" parent="HumanBuildingBases" index="22" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -41.9476, 3.8147e-06, -97.7062 )
+
+[node name="BuildingBase25" parent="HumanBuildingBases" index="23" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -67.5901, 3.8147e-06, -123.111 )
+
+[node name="BuildingBase26" parent="HumanBuildingBases" index="24" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61.7023, 3.8147e-06, 58.2876 )
+
+[node name="BuildingBase27" parent="HumanBuildingBases" index="25" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -176.157, 3.8147e-06, 36.7629 )
+
+[node name="BuildingBase19" parent="HumanBuildingBases" index="26" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.4292, 0, -30.1065 )
+
+[node name="BattleDrones" type="Node" parent="." index="13"]
+
+[node name="BattleDroneSpawnPoints" type="Node" parent="." index="14"]
+
+editor/display_folded = true
+
+[node name="SpawnPoint1" parent="BattleDroneSpawnPoints" index="0" instance=ExtResource( 26 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.9301, 0, 75.5154 )
+waypoints = [ NodePath("../../Waypoints/Waypoint10"), NodePath("../../Waypoints/Waypoint13"), NodePath("../../Waypoints/Waypoint14"), NodePath("../../Waypoints/Waypoint15"), NodePath("../../Waypoints/Waypoint16"), NodePath("../../Waypoints/Waypoint17"), NodePath("../../Waypoints/Waypoint34") ]
+
+[node name="SpawnPoint2" parent="BattleDroneSpawnPoints" index="1" instance=ExtResource( 26 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65.1832, 0, 75.1828 )
+waypoints = [ NodePath("../../Waypoints/Waypoint5"), NodePath("../../Waypoints/Waypoint4"), NodePath("../../Waypoints/Waypoint3"), NodePath("../../Waypoints/Waypoint2"), NodePath("../../Waypoints/Waypoint1"), NodePath("../../Waypoints/Waypoint34") ]
+
+[node name="SpawnPoint3" parent="BattleDroneSpawnPoints" index="2" instance=ExtResource( 26 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.8429, 0, -115.519 )
+waypoints = [ NodePath("../../Waypoints/Waypoint29"), NodePath("../../Waypoints/Waypoint30"), NodePath("../../Waypoints/Waypoint31"), NodePath("../../Waypoints/Waypoint32"), NodePath("../../Waypoints/Waypoint33"), NodePath("../../Waypoints/Waypoint34") ]
+
+[node name="SpawnPoint4" parent="BattleDroneSpawnPoints" index="3" instance=ExtResource( 26 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -144.673, 0, -94.1141 )
+waypoints = [ NodePath("../../Waypoints/Waypoint52"), NodePath("../../Waypoints/Waypoint53"), NodePath("../../Waypoints/Waypoint55"), NodePath("../../Waypoints/Waypoint56"), NodePath("../../Waypoints/Waypoint34") ]
+
+[node name="SpawnPoint5" parent="BattleDroneSpawnPoints" index="4" instance=ExtResource( 26 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1767, 0, -84.6945 )
+waypoints = [ NodePath("../../Waypoints/Waypoint21"), NodePath("../../Waypoints/Waypoint20"), NodePath("../../Waypoints/Waypoint19"), NodePath("../../Waypoints/Waypoint18"), NodePath("../../Waypoints/Waypoint16"), NodePath("../../Waypoints/Waypoint17"), NodePath("../../Waypoints/Waypoint1"), NodePath("../../Waypoints/Waypoint34") ]
+
+[node name="Waypoints" type="Node" parent="." index="15"]
+
+editor/display_folded = true
+
+[node name="Waypoint1" type="Spatial" parent="Waypoints" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -62.2183, 0, -18.3973 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint2" type="Spatial" parent="Waypoints" index="1"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70.6616, 0, 15.0968 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint3" type="Spatial" parent="Waypoints" index="2"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -94.7133, 3.8147e-06, 16.7342 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint4" type="Spatial" parent="Waypoints" index="3"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -94.7348, 0, 53.8903 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint5" type="Spatial" parent="Waypoints" index="4"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64.5464, 0, 55.2378 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint6" type="Spatial" parent="Waypoints" index="5"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8831, 0, 55.8463 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint7" type="Spatial" parent="Waypoints" index="6"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.517, 0, 85.5084 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint8" type="Spatial" parent="Waypoints" index="7"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1995, 0, 85.5017 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint9" type="Spatial" parent="Waypoints" index="8"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2187, 0, 75.5594 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint10" type="Spatial" parent="Waypoints" index="9"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64.3015, 0, 74.7459 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint11" type="Spatial" parent="Waypoints" index="10"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.9975, 0, 54.982 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint12" type="Spatial" parent="Waypoints" index="11"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.1014, 0, 54.1457 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint13" type="Spatial" parent="Waypoints" index="12"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 64.6779, 0, 38.3757 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint14" type="Spatial" parent="Waypoints" index="13"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.78, 0, 23.8685 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint15" type="Spatial" parent="Waypoints" index="14"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.1662, -1.90735e-06, -4.36741 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint16" type="Spatial" parent="Waypoints" index="15"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.82665, -1.90735e-06, -4.88968 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint17" type="Spatial" parent="Waypoints" index="16"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.1792, -1.90735e-06, -4.28405 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint18" type="Spatial" parent="Waypoints" index="17"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54949, -1.90735e-06, -23.7148 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint19" type="Spatial" parent="Waypoints" index="18"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.90239, -1.90735e-06, -53.8054 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint20" type="Spatial" parent="Waypoints" index="19"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3312, -1.90735e-06, -54.337 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint21" type="Spatial" parent="Waypoints" index="20"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6479, 0, -84.8485 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint22" type="Spatial" parent="Waypoints" index="21"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8445, 0, -114.054 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint23" type="Spatial" parent="Waypoints" index="22"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.20482, 0, -116.267 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint24" type="Spatial" parent="Waypoints" index="23"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.96709, 0, -134.395 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint25" type="Spatial" parent="Waypoints" index="24"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9456, 0, -135.044 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint26" type="Spatial" parent="Waypoints" index="25"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9273, 0, -163.786 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint27" type="Spatial" parent="Waypoints" index="26"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.391, 0, -133.726 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint28" type="Spatial" parent="Waypoints" index="27"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.2129, 0, -114.652 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint29" type="Spatial" parent="Waypoints" index="28"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65.0188, 0, -114.178 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint30" type="Spatial" parent="Waypoints" index="29"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64.6477, 0, -94.934 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint31" type="Spatial" parent="Waypoints" index="30"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.6277, 0, -94.5333 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint32" type="Spatial" parent="Waypoints" index="31"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.6552, 0, -64.552 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint33" type="Spatial" parent="Waypoints" index="32"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65.0134, 0, -63.83 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint34" type="Spatial" parent="Waypoints" index="33"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -62.5889, 0, -36.8191 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint35" type="Spatial" parent="Waypoints" index="34"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -94.8769, 0, -114.29 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint36" type="Spatial" parent="Waypoints" index="35"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -94.9239, 0, -94.4064 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint37" type="Spatial" parent="Waypoints" index="36"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -114.927, 0, -94.8569 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint38" type="Spatial" parent="Waypoints" index="37"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -114.84, 0, -104.325 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint39" type="Spatial" parent="Waypoints" index="38"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -134.715, 0, -104.154 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint40" type="Spatial" parent="Waypoints" index="39"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -135.085, 0, -95.3138 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint41" type="Spatial" parent="Waypoints" index="40"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -144.591, 0, -94.4787 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint42" type="Spatial" parent="Waypoints" index="41"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -145.872, 0, -84.7805 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint43" type="Spatial" parent="Waypoints" index="42"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -174.041, 0, -83.8631 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint44" type="Spatial" parent="Waypoints" index="43"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -185.303, 0, -84.5154 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint45" type="Spatial" parent="Waypoints" index="44"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -185.129, 0, -123.564 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint46" type="Spatial" parent="Waypoints" index="45"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -145.311, 0, -124.359 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint47" type="Spatial" parent="Waypoints" index="46"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -144.48, 0, -144.262 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint48" type="Spatial" parent="Waypoints" index="47"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -124.539, 0, -144.34 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint49" type="Spatial" parent="Waypoints" index="48"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -104.693, 0, -144.33 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint50" type="Spatial" parent="Waypoints" index="49"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -104.815, 0, -134.867 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint51" type="Spatial" parent="Waypoints" index="50"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64.3315, 0, -134.178 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint52" type="Spatial" parent="Waypoints" index="51"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -144.536, 0, -54.1923 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint53" type="Spatial" parent="Waypoints" index="52"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -114.867, 0, -53.9547 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint54" type="Spatial" parent="Waypoints" index="53"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -104.192, 0, -56.6952 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint55" type="Spatial" parent="Waypoints" index="54"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -114.355, 0, -24.8006 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint56" type="Spatial" parent="Waypoints" index="55"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -76.594, 0, -24.3161 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint57" type="Spatial" parent="Waypoints" index="56"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65.3286, 0, 75.3498 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint58" type="Spatial" parent="Waypoints" index="57"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -114.586, 0, 75.4777 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint59" type="Spatial" parent="Waypoints" index="58"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -115.563, 0, 35.6526 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint60" type="Spatial" parent="Waypoints" index="59"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -133.912, 0, 34.5844 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint61" type="Spatial" parent="Waypoints" index="60"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -135.361, 0, 15.1726 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint62" type="Spatial" parent="Waypoints" index="61"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -133.851, 0, -4.2424 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint63" type="Spatial" parent="Waypoints" index="62"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -184.091, 0, 15.2642 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint64" type="Spatial" parent="Waypoints" index="63"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -184.449, 0, -4.04318 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint65" type="Spatial" parent="Waypoints" index="64"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -194.939, 0, -5.11715 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Waypoint66" type="Spatial" parent="Waypoints" index="65"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -195.8, 7.62939e-06, -24.5888 )
+_sections_unfolded = [ "Transform" ]
+
+[connection signal="focus_exited" from="DevConsole/CommandEdit" to="DevConsole" method="_on_CommandEdit_focus_exited" flags=3]
+
+[connection signal="text_entered" from="DevConsole/CommandEdit" to="DevConsole" method="_on_CommandEdit_text_entered" flags=3]
+
+[connection signal="pressed" from="PauseWindow/VBoxContainer/Continue Button" to="PauseWindow" method="_on_Continue_Button_pressed" flags=3]
+
+[connection signal="pressed" from="PauseWindow/VBoxContainer/Options Button" to="PauseWindow" method="_on_Options_Button_pressed" flags=3]
+
+[connection signal="pressed" from="PauseWindow/VBoxContainer/Menu Button" to="PauseWindow" method="_on_Menu_Button_pressed" flags=3]
+
+[connection signal="pressed" from="PauseWindow/VBoxContainer/Quit Button" to="PauseWindow" method="_on_Quit_Button_pressed" flags=3]
+
+

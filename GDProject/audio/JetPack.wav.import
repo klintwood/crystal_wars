@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/JetPack.wav-afc78c2e7c61d4dcb573bba267595e2d.sample"
+
+[deps]
+
+source_file="res://audio/JetPack.wav"
+source_md5="cf724c80b2833b2e4d76641b4b032f19"
+
+dest_files=[ "res://.import/JetPack.wav-afc78c2e7c61d4dcb573bba267595e2d.sample" ]
+dest_md5="44c6b83bf6e37349f8b1ef81c7e81498"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

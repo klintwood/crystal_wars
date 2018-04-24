@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/VeryBadTunes.ogg-385a6e3247ac5c6d34cee9b6744a53d0.oggstr"
+
+[deps]
+
+source_file="res://audio/VeryBadTunes.ogg"
+source_md5="ca587fca3029b0717e9361043e8dfcd4"
+
+dest_files=[ "res://.import/VeryBadTunes.ogg-385a6e3247ac5c6d34cee9b6744a53d0.oggstr" ]
+dest_md5="c4bbb98a408218c0cecd781be7f8ffd7"
+
+[params]
+
+loop=true
+loop_offset=0

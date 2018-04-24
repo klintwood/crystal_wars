@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MenuBlip.wav-efbcec33bde1871cef83d95ce50363eb.sample"
+
+[deps]
+
+source_file="res://audio/MenuBlip.wav"
+source_md5="4c3c19d033e3b7ac2fb57d0a10462da1"
+
+dest_files=[ "res://.import/MenuBlip.wav-efbcec33bde1871cef83d95ce50363eb.sample" ]
+dest_md5="5af1779e1540deb505bdb753a47cc036"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

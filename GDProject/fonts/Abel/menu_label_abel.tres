@@ -1,0 +1,13 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://Fonts/Abel/Abel-Regular.ttf" type="DynamicFontData" id=1]
+
+[resource]
+
+size = 20
+use_mipmaps = true
+use_filter = true
+extra_spacing_bottom = -7
+font_data = ExtResource( 1 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Font/fallback", "Settings" ]
+

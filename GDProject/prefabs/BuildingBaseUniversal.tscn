@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/BuildingBase.gd" type="Script" id=1]
+[ext_resource path="res://materials/BlueCoating.tres" type="Material" id=2]
+[ext_resource path="res://meshes/building_base_model/BuildingBase.mesh" type="ArrayMesh" id=3]
+
+[sub_resource type="SphereMesh" id=1]
+
+radius = 1.0
+height = 2.0
+radial_segments = 64
+rings = 32
+is_hemisphere = false
+
+[sub_resource type="SphereShape" id=2]
+
+radius = 1.0
+
+[sub_resource type="ConcavePolygonShape" id=3]
+
+data = PoolVector3Array( 0, 0.45, -2, 0, -0.1499, -2, 0.7651, -0.1499, -1.8477, 0.7651, 0.45, -1.8477, 0.7651, -0.1499, -1.8477, 1.4141, -0.1499, -1.4141, 1.4141, 0.45, -1.4141, 1.4141, -0.1499, -1.4141, 1.8477, -0.1499, -0.7651, 1.8477, 0.45, -0.7651, 1.8477, -0.1499, -0.7651, 2, -0.1499, 0, 2, 0.45, 0, 2, -0.1499, 0, 1.8477, -0.1499, 0.7651, 1.8477, 0.45, 0.7651, 1.8477, -0.1499, 0.7651, 1.4141, -0.1499, 1.4141, 1.4141, 0.45, 1.4141, 1.4141, -0.1499, 1.4141, 0.7651, -0.1499, 1.8477, 0.7651, 0.45, 1.8477, 0.7651, -0.1499, 1.8477, 0, -0.1499, 2, 0, 0.45, 2, 0, -0.1499, 2, -0.7651, -0.1499, 1.8477, -0.7651, 0.45, 1.8477, -0.7651, -0.1499, 1.8477, -1.4141, -0.1499, 1.4141, -1.4141, 0.45, 1.4141, -1.4141, -0.1499, 1.4141, -1.8477, -0.1499, 0.7651, -1.8477, 0.45, 0.7651, -1.8477, -0.1499, 0.7651, -2, -0.1499, 0, -2, 0.45, 0, -2, -0.1499, 0, -1.8477, -0.1499, -0.7651, -1.8477, 0.45, -0.7651, -1.8477, -0.1499, -0.7651, -1.4141, -0.1499, -1.4141, -1.4141, 0.45, -1.4141, -1.4141, -0.1499, -1.4141, -0.7651, -0.1499, -1.8477, -0.7651, 0.45, -1.8477, -0.7651, -0.1499, -1.8477, 0, -0.1499, -2, 1.4141, 0.45, 1.4141, 0.7651, 0.45, 1.8477, 0, 0.45, 2, 1.8477, 0.45, 0.7651, 1.4141, 0.45, 1.4141, -0.7651, 0.45, 1.8477, -1.8477, 0.45, 0.7651, 2, 0.45, 0, 1.8477, 0.45, 0.7651, -2, 0.45, 0, 1.8477, 0.45, -0.7651, 2, 0.45, 0, -1.8477, 0.45, -0.7651, 1.4141, 0.45, -1.4141, 1.8477, 0.45, -0.7651, 0.7651, 0.45, -1.8477, 1.4141, 0.45, -1.4141, -1.8477, 0.45, -0.7651, 0, 0.45, -2, 0.7651, 0.45, -1.8477, -1.4141, 0.45, -1.4141, 0, 0.45, -2, 0.7651, -0.1499, -1.8477, 0.7651, 0.45, -1.8477, 0.7651, 0.45, -1.8477, 1.4141, -0.1499, -1.4141, 1.4141, 0.45, -1.4141, 1.4141, 0.45, -1.4141, 1.8477, -0.1499, -0.7651, 1.8477, 0.45, -0.7651, 1.8477, 0.45, -0.7651, 2, -0.1499, 0, 2, 0.45, 0, 2, 0.45, 0, 1.8477, -0.1499, 0.7651, 1.8477, 0.45, 0.7651, 1.8477, 0.45, 0.7651, 1.4141, -0.1499, 1.4141, 1.4141, 0.45, 1.4141, 1.4141, 0.45, 1.4141, 0.7651, -0.1499, 1.8477, 0.7651, 0.45, 1.8477, 0.7651, 0.45, 1.8477, 0, -0.1499, 2, 0, 0.45, 2, 0, 0.45, 2, -0.7651, -0.1499, 1.8477, -0.7651, 0.45, 1.8477, -0.7651, 0.45, 1.8477, -1.4141, -0.1499, 1.4141, -1.4141, 0.45, 1.4141, -1.4141, 0.45, 1.4141, -1.8477, -0.1499, 0.7651, -1.8477, 0.45, 0.7651, -1.8477, 0.45, 0.7651, -2, -0.1499, 0, -2, 0.45, 0, -2, 0.45, 0, -1.8477, -0.1499, -0.7651, -1.8477, 0.45, -0.7651, -1.8477, 0.45, -0.7651, -1.4141, -0.1499, -1.4141, -1.4141, 0.45, -1.4141, -1.4141, 0.45, -1.4141, -0.7651, -0.1499, -1.8477, -0.7651, 0.45, -1.8477, -0.7651, 0.45, -1.8477, 0, -0.1499, -2, 0, 0.45, -2, 1.4141, 0.45, 1.4141, 0, 0.45, 2, -0.7651, 0.45, 1.8477, 1.8477, 0.45, 0.7651, -0.7651, 0.45, 1.8477, -1.4141, 0.45, 1.4141, -1.8477, 0.45, 0.7651, 1.8477, 0.45, 0.7651, -1.4141, 0.45, 1.4141, -2, 0.45, 0, 2, 0.45, 0, -1.8477, 0.45, 0.7651, -1.8477, 0.45, -0.7651, 1.8477, 0.45, -0.7651, -2, 0.45, 0, 0.7651, 0.45, -1.8477, -1.8477, 0.45, -0.7651, -1.4141, 0.45, -1.4141, 0, 0.45, -2, -1.4141, 0.45, -1.4141, -0.7651, 0.45, -1.8477 )
+
+[node name="BuildingBase" type="Spatial" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+player = "human"
+
+[node name="Ball" type="MeshInstance" parent="." index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05945, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 1 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 2 )
+_sections_unfolded = [ "material" ]
+
+[node name="StaticBody" type="StaticBody" parent="Ball" index="0" groups=[
+"construction_site",
+]]
+
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+friction = 1.0
+bounce = 0.0
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Ball/StaticBody" index="0"]
+
+shape = SubResource( 2 )
+disabled = false
+
+[node name="BuildingBase" type="MeshInstance" parent="." index="1"]
+
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 3 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="StaticBody" type="StaticBody" parent="BuildingBase" index="0" groups=[
+"construction_site",
+]]
+
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+friction = 1.0
+bounce = 0.0
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="BuildingBase/StaticBody" index="0"]
+
+shape = SubResource( 3 )
+disabled = false
+
+

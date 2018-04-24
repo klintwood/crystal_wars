@@ -1,0 +1,321 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://fonts/Gugi/title_gugi.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/Abel/menu_button_abel.tres" type="DynamicFont" id=2]
+[ext_resource path="res://fonts/Abel/menu_label_abel.tres" type="DynamicFont" id=3]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends MarginContainer
+
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func _on_Menu_Button_pressed():
+	get_tree().change_scene(\"res://scenes/MainMenu.tscn\")
+
+
+func _on_Quit_Button_pressed():
+	get_tree().quit()
+"
+
+[node name="GameWonUI" type="MarginContainer"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 50.0
+margin_right = -40.0
+margin_bottom = -20.0
+grow_horizontal = 0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = SubResource( 1 )
+_sections_unfolded = [ "Grow Direction", "Margin", "Pause", "Rect" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_right = 944.0
+margin_bottom = 530.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 936.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+
+[node name="Title Label" type="Label" parent="VBoxContainer/CenterContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 275.0
+margin_right = 661.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 1 )
+text = "Crystal Wars"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "custom_fonts" ]
+
+[node name="Title Label2" type="Label" parent="VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 67.0
+margin_right = 936.0
+margin_bottom = 199.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
+text = "Oh no!
+Sorry, but your HQ was destroyed,
+so you have lost."
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "custom_fonts" ]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 203.0
+margin_right = 936.0
+margin_bottom = 530.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 305.0
+margin_bottom = 327.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 2
+
+[node name="Version Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 264.0
+margin_right = 305.0
+margin_bottom = 327.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.886719, 0.886719, 0.886719, 1 )
+text = "A first person realtime strategy shooter.
+Made for LD41 by Daniel & Nico.
+v0.1 - Alpha"
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Size Flags", "custom_colors", "custom_fonts" ]
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 309.0
+margin_right = 936.0
+margin_bottom = 327.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_right = 627.0
+margin_bottom = 327.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 1
+_sections_unfolded = [ "Margin", "Size Flags" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/HBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 245.0
+margin_right = 374.0
+margin_bottom = 327.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Anchor" ]
+
+[node name="Menu Button" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 129.0
+margin_bottom = 48.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.767843, 0.972656, 0.710495, 1 )
+custom_colors/font_color_hover = Color( 0.701961, 0.72549, 1, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Try again!"
+flat = true
+align = 0
+_sections_unfolded = [ "Mouse", "custom_colors", "custom_fonts" ]
+
+[node name="Quit Button" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 52.0
+margin_right = 129.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.792969, 0.337631, 0.337631, 1 )
+custom_colors/font_color_hover = Color( 0.701961, 0.72549, 1, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Quit"
+flat = true
+align = 0
+_sections_unfolded = [ "Mouse", "custom_colors", "custom_fonts" ]
+
+[node name="Camera2D" type="Camera2D" parent="." index="1"]
+
+anchor_mode = 1
+rotating = false
+current = false
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Menu Button" to="." method="_on_Menu_Button_pressed" flags=3]
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Quit Button" to="." method="_on_Quit_Button_pressed" flags=3]
+
+

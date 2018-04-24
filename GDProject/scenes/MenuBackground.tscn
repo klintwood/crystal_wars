@@ -1,0 +1,182 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://meshes/mesh_library/world_parts.meshlib" type="MeshLibrary" id=1]
+[ext_resource path="res://prefabs/HQ.tscn" type="PackedScene" id=2]
+[ext_resource path="res://prefabs/UniversalDrone.tscn" type="PackedScene" id=3]
+[ext_resource path="res://meshes/building_base_model/BuildingBase.mesh" type="ArrayMesh" id=4]
+[ext_resource path="res://meshes/building_base_model/TurretBase.mesh" type="ArrayMesh" id=5]
+[ext_resource path="res://meshes/building_base_model/Drum.mesh" type="ArrayMesh" id=6]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "TurretMenuAni"
+length = 8.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TurretBase:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 144.397, 0 ), Vector3( 0, -130.04, 0 ), Vector3( 0, 144.397, 0 ) ]
+}
+
+[node name="MenuBackground" type="Node" index="0"]
+
+[node name="GridMap" type="GridMap" parent="." index="0"]
+
+theme = ExtResource( 1 )
+cell_size = Vector3( 10, 5, 10 )
+cell_octant_size = 8
+cell_center_x = true
+cell_center_y = false
+cell_center_z = true
+cell_scale = 1.0
+collision_layer = 1
+collision_mask = 1
+data = {
+"cells": PoolIntArray( 0, 0, 1441792, 1, 0, 6, 2, 0, 4, 3, 0, 7, 65534, 0, 1441792, 65535, 0, 2, 1, 1, 655367, 2, 1, 4, 3, 1, 7, 65535, 1, 0, 1, 2, 1441797, 2, 2, 1441799, 3, 2, 5, 65535, 2, 3, 1, 65534, 655365, 2, 65534, 1048583, 3, 65534, 1048581, 1, 65535, 655367, 2, 65535, 4, 3, 65535, 655366, 4, 65535, 1441800, 65535, 65535, 8 )
+}
+_sections_unfolded = [ "Cell" ]
+__meta__ = {
+"_editor_clip_": 0
+}
+
+[node name="OmniLight" type="OmniLight" parent="." index="1"]
+
+transform = Transform( -0.938946, 0, 0.344064, 0, 1, 0, -0.344064, 0, -0.938946, -4.48677, 2.57794, -5.41365 )
+layers = 1
+light_color = Color( 0.59375, 0.876221, 1, 1 )
+light_energy = 1.11
+light_indirect_energy = 1.12
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 7.16313
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light", "Shadow" ]
+
+[node name="OmniLight2" type="OmniLight" parent="." index="2"]
+
+transform = Transform( -0.938946, 0, 0.344064, 0, 1, 0, -0.344064, 0, -0.938946, 44.5156, 1.92972, -5.41365 )
+layers = 1
+light_color = Color( 0.59375, 0.876221, 1, 1 )
+light_energy = 1.11
+light_indirect_energy = 1.12
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.15
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+omni_range = 7.16313
+omni_attenuation = 1.0
+omni_shadow_mode = 1
+omni_shadow_detail = 1
+_sections_unfolded = [ "Light", "Shadow" ]
+
+[node name="HQ" parent="." index="3" instance=ExtResource( 2 )]
+
+transform = Transform( -0.938946, 0, 0.344064, 0, 1, 0, -0.344064, 0, -0.938946, 28.7395, 0.0332003, 5.97981 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Camera" type="Camera" parent="." index="4"]
+
+transform = Transform( 0.278067, 0, -0.960562, 0, 1, 0, 0.960562, 0, 0.278067, -11.7017, 1.34547, 5.05518 )
+keep_aspect = 1
+cull_mask = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = false
+fov = 70.0
+size = 1.0
+near = 0.05
+far = 100.0
+
+[node name="UniversalDrone" parent="." index="5" instance=ExtResource( 3 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.85955, 0, 2.99702 )
+
+[node name="BuildingBase" type="MeshInstance" parent="." index="6"]
+
+transform = Transform( -0.948496, 0, 0.316789, 0, 1, 0, -0.316789, 0, -0.948496, 21.7883, 0, 11.0456 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 4 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="TurretBase" type="MeshInstance" parent="BuildingBase" index="0"]
+
+transform = Transform( -0.0756297, 0, -0.997136, 0, 1, 0, 0.997136, 0, -0.0756297, 3.8147e-06, 0.541607, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="Drum" type="MeshInstance" parent="BuildingBase/TurretBase" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.986478, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 6 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BuildingBase" index="1"]
+
+root_node = NodePath("..")
+autoplay = "TurretMenuAni"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/TurretMenuAni = SubResource( 1 )
+blend_times = [  ]
+
+
